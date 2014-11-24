@@ -10,13 +10,15 @@ Dependencies
 ------------
 * wget
 * curl
+* XML::Simple
 
 Invocation
 ----------
-A simple
+Example:
 
-    ./svgcaptcha-parser
+$ ./svgcaptcha-parser 
+Saved 3f45kx9.svg
+$ ls *.svg
+3f45kx9.svg
+$ 
 
-will use curl to fetch a random captcha and save it with a filename to describe the captcha's text.
-For example, a captcha reading 'j526nyn' will be saved as `j526nyn.svg' in the working directory.
-Yay.
