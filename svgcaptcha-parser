@@ -1,0 +1,26 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use XML::Simple;
+
+
+# Fetch fresh svg and parse it
+die("Failed to download new svg: $!\n") unless my $raw_svg = `curl -s http://svgcaptcha.com/captcha.php`;
+
+my $svg = XMLin($raw_svg, KeyAttr => {"text", "x"})->{"text"};
+
+
+# Build the filename
+my $filename = "";
+foreach my $i (sort {$a <=> $b} keys %$svg)
+{
+	$filename .= %$svg{$i}->{"content"};
+}
+
+# Write to file
+open(my $f, ">", "$filename.svg") or die("Failed to open $filename.svg: $!\n");
+print($f $raw_svg) or die("Failed to write to file: $!\n");
+print("Saved $filename.svg\n");
+close($f);
