@@ -16,9 +16,9 @@ Invocation
 ----------
 Example:
 
-$ ./svgcaptcha-parser 
-Saved 3f45kx9.svg
-$ ls *.svg
-3f45kx9.svg
-$ 
+    $ ./svgcaptcha-parser 
+    Saved 3f45kx9.svg
+    $ ls *.svg
+    3f45kx9.svg
+    $ 
 
