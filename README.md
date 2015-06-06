@@ -9,16 +9,6 @@ This targets a very small subset of all possible types of SVG captchas.
 
 Dependencies
 ------------
-* curl
+* HTTP::Tiny
 * XML::Simple
-
-Invocation
-----------
-Example:
-
-    $ ./svgcaptcha-parser 
-    Saved 3f45kx9.svg
-    $ ls *.svg
-    3f45kx9.svg
-    $ 
 

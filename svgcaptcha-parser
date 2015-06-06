@@ -4,11 +4,11 @@ use strict;
 use warnings;
 
 use XML::Simple;
-
+use HTTP::Tiny;
 
 # Fetch fresh svg and parse it
-die("Failed to download new svg: $!\n") unless my $raw_svg = `curl -s http://svgcaptcha.com/captcha.php`;
-
+my $response = HTTP::Tiny->new->get('http://svgcaptcha.com/captcha.php') or die("Failed to download new SVG: $!\n");
+my $raw_svg = $response->{content};
 my $svg = XMLin($raw_svg, KeyAttr => {"text", "x"})->{"text"};
 
 
